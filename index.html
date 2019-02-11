@@ -6,11 +6,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
   <title>CS 360/560 Spring 2019</title>
 
   <!-- bulma 0.7.2 and font awesome v5.7.1 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" integrity="sha256-2pUeJf+y0ltRPSbKOeJh09ipQFYxUdct5nTY6GAXswA=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"><script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="chart.js"></script>
+
+
 </head>
 
 <!-- body -->
@@ -25,7 +30,7 @@
           Visualization Assignment
         </h1>
         <h2 class="subtitle">
-          Full Name
+          Jordan Aldujaili
         </h2>
       </div>
     </div>
@@ -77,12 +82,62 @@
   <!-- todo: add sections as necessary -->
   <section class="section">
     <div class="container content">
+
       <!-- todo: modify as necessary (or move visualizations to separate pages) -->
       <h2>Visualization 1</h2>
 
       <svg width="100%" height="400" style="background-color: whitesmoke; border: 1px solid black;">
+
       </svg>
 
+	  <script type="text/javascript">
+          /*
+		   * lets add a rectangle around our entire svg to help debug
+		   */
+
+          // we can select specific elements in the "DOM" using d3
+          var svg = d3.select("body").select("svg");
+
+          // get the calculated bounding box of the svg
+          var bounds = svg.node().getBoundingClientRect();
+          console.log("svg bounds:", bounds);
+
+          // add the rectangle to the svg
+          // https://github.com/mbostock/d3/wiki/SVG-Shapes#svg_rect
+          var border = svg.append("rect")
+              .attr("id", "bounds")
+              .attr("x", 0)
+              .attr("y", 0)
+              .attr("width", bounds.width)
+              .attr("height", bounds.height);
+
+          /*
+		   * whoa, look at all those chained methods! this is very
+		   * common, but doesn't work with everything. see:
+		   * http://alignedleft.com/tutorials/d3/chaining-methods
+		   */
+
+          // suppose we wanted rounded corners. instead of chaining we could do:
+          border = border.attr("rx", 10);
+          border = border.attr("ry", 10);
+
+
+          d3.csv("incident12-1.csv", convertRow);
+
+
+		  // d3.csv("incident12-1.csv", function(error,data){
+		  //     if (error){
+		  //         console.warn(error);
+		  //         return;
+			//   }
+			//   console.log(convertRow(data))
+           //    // d3.select("body").select("svg").text(data);
+			//   //
+           //    // drawBarChart();
+		  // })
+		  // console.log(data);
+		  // drawBarChart(ds);
+	  </script>
       <h3>Interpretation</h3>
 
       <p>
