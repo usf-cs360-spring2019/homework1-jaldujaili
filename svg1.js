@@ -14,10 +14,10 @@ var drawBarChart = function(){
     }
 
     let margin = {
-        top:    15,
-        right:  35, // leave space for y-axis
-        bottom: 30, // leave space for x-axis
-        left:   10
+        top:    50,
+        right:  45, // leave space for y-axis
+        bottom: 40, // leave space for x-axis
+        left:   20
     };
 
     let bounds = svg.node().getBoundingClientRect();
@@ -30,12 +30,12 @@ var drawBarChart = function(){
         .nice();
 
     // let districts = Array.from( Object.keys(dict) )
-    let districts = count.keys()
+    let districts = count.keys().sort();
 
     let districtScale = d3.scaleBand()
         .domain(districts) // all letters (not using the count here)
-        .rangeRound([0, plotWidth])
-        .paddingInner(0.1);
+        .rangeRound([50, plotWidth])
+        .paddingInner(0.3);
 
     var plot = svg.select("g#plot");
 
@@ -46,7 +46,7 @@ var drawBarChart = function(){
     }
 
     let xAxis = d3.axisBottom(districtScale);
-    let yAxis = d3.axisRight(countScale);
+    let yAxis = d3.axisLeft(countScale);
 
     if (plot.select("g#y-axis").size() < 1) {
         let xGroup = plot.append("g").attr("id", "x-axis");
@@ -56,7 +56,7 @@ var drawBarChart = function(){
 
         let yGroup = plot.append("g").attr("id", "y-axis");
         yGroup.call(yAxis);
-        yGroup.attr("transform", "translate(" + plotWidth + ",0)");
+        yGroup.attr("transform", "translate(" + 45 + ",0)");
     } else {
         plot.select("g#y-axis").call(yAxis);
     }
@@ -77,76 +77,47 @@ var drawBarChart = function(){
             return plotHeight - countScale(d.value);
         })
         .each(function(d, i, nodes) {
-            console.log("Added bar for:", d.key);
+            // console.log("Added bar for:", d.key);
         });
-
-
+    
     bars.transition()
         .attr("y", function(d) { return countScale(d.value); })
         .attr("height", function(d) { return plotHeight - countScale(d.value); });
 
     bars.exit()
         .each(function(d, i, nodes) {
-            console.log("Removing bar for:", d.key);
+            // console.log("Removing bar for:", d.key);
         })
         .transition()
         .attr("y", function(d) { return countScale(countMin); })
         .attr("height", function(d) { return plotHeight - countScale(countMin); })
         .remove();
 
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y",  10)
+        .attr("x",0 - (plotHeight / 2)-45)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Number of Records");
+
+    // svg.append("text")
+    //
+    //     .attr("y", 5 - margin.left)
+    //     .attr("x",0 - (plotHeight -10))
+    //     .attr("dy", "1em")
+    //     .style("text-anchor", "middle")
+    //     .text("Value");
+
+    svg.append("text")
+        .attr("x", (plotWidth / 2))
+        .attr("y", 0 + (margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("text-decoration", "underline")
+        .text("Value vs Date Graph");
 }
 
-// var getMaxDist = function(dict){
-//     var max = 0;
-//     Object.keys(dict).forEach(function (key) {
-//         if(dict[key] > max){
-//             max = dict[key];
-//         }
-//     })
-//     return max;
-// }
-
-var countDistrict = function(data){
-
-    var district = data["Police District"];
-    if(count.has(district)){
-        count.set(district, count.get(district)+1)
-    }else{
-        count.set(district, 1)
-    }
-    // if (dict[district] == null){
-    //     dict[district] = 1
-    // }else{
-    //     dict[district] = dict[district] +1
-    // }
-}
-
-
-var convertRow = function(row,index){
-    incedentHourParse = d3.timeParse("%H:%m");
-    incedentDateParse = d3.timeParse("%Y/%m/%d");
-    let out ={};
-    out.values = [];
-
-
-    for (let col in row){
-        switch(col){
-            case "Police District":
-                var district = row[col]
-                out[col] = district;
-
-                break;
-            case "Incident Time":
-                var time = incedentHourParse(row[col])
-                out[col] = time;
-                break;
-            case "Incident Date":
-                var date = incedentDateParse(row[col])
-                out[col] = date;
-                break
-        }
-    }
-    countDistrict(out);
+d3.csv("incident12-1.csv", policeRow).then(function(d){
     drawBarChart()
-    return out ;
-}
+});
