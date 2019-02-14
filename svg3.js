@@ -25,7 +25,7 @@ var drawLine = function(){
         top:    50,
         right:  45, // leave space for y-axis
         bottom: 40, // leave space for x-axis
-        left:   20
+        left:   30
     };
 
     let bounds = svg.node().getBoundingClientRect();
@@ -41,7 +41,7 @@ var drawLine = function(){
 
     var x = d3.scaleBand()
         .domain(days)
-        .rangeRound([0, plotWidth]);
+        .rangeRound([45, plotWidth]);
 
     var y = d3.scaleLinear()
         .domain([countMin,countMax])
@@ -57,7 +57,7 @@ var drawLine = function(){
         plot.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     }
 
-    var yAxis = d3.axisLeft(y);
+    var yAxis = d3.axisLeft(y).ticks(10);
     var xAxis = d3.axisBottom(x);
 
 
@@ -90,87 +90,31 @@ var drawLine = function(){
         .y(function(d) { return y(d.value); })
 
     var dayentries = dayMap.entries();
-    graph.append("path").attr("class", "line").attr("d", valueline(dayentries));;
+    graph.append("path").attr("class", "line").attr("d", valueline(dayentries));
 
-}
+    svg.append("text")
+        .attr("x", 15)
+        .attr("y", 0 + (margin.top / 2))
+        .style("font-size", "17pt")
+        .style("font-family", "'Roboto', sans-serif")
+        .text("Number of Incidents by Date");
 
+    svg.append("text")
+        .attr("x", (plotWidth / 1.8))
+        .attr("y", 0 + (margin.top))
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .style("font-family", "'Roboto', sans-serif")
+        .text("Incident date");
 
-// dayMap = d3.map();
-// d3.csv("incident12-1.csv").then(function(d){
-//
-//     var parsedData = parseData(d)
-//     drawLine(parsedData)
-// });
-//
-// function parseData(data) {
-//     var arr = [];
-//     incedentDateParse = d3.timeParse("%Y/%m/%d");
-//
-//
-//     for(var i in data){
-//         var date = incedentDateParse(data[i]["Incident Date"])
-//         if (date !== null){
-//             arr.push(
-//                 {
-//                     date: date.getDate(), //date
-//                     value: 1 //convert string to number
-//                 });
-//         }
-//     }
-//
-//     return arr;
-// }
-//
-// function drawLine(data){
-//     var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-//     var svg = d3.select('svg');
-//
-//     let bounds = svg.node().getBoundingClientRect();
-//     var width = bounds.width - margin.right - margin.left;
-//     var height = bounds.height - margin.top - margin.bottom;
-//
-//         svg.attr("width", width)
-//         .attr("height", height);
-//
-//     // var g = svg.append("g")
-//     //     .attr("transform",
-//     //         "translate(" + margin.left + "," + margin.top + ")"
-//     //     );
-//     //
-//     // // var x = d3.scaleTime().rangeRound([0, width]);
-//     // // var y = d3.scaleLinear().rangeRound([height, 0]);
-//     //
-//     // var x = d3.scaleTime()
-//     //     .domain(days)
-//     //     .rangeRound([0, width]);
-//     //
-//     // var y = d3.scaleLinear()
-//     //     .domain([countMax, countMin])
-//     //     .range([height, 0])
-//     //     .nice();
-//     //
-//     // var yaxis = d3.axisLeft(y);
-//     // var xaxis = d3.axisBottom(x);
-//     //
-//     // var line = d3.line()
-//     //     .x(function(d) { return x(d.date)})
-//     //     .y(function(d) { return y(d.value)})
-//     // // x.domain(d3.extent(data, function(d) { return d.date }));
-//     // // y.domain(d3.extent(data, function(d) { return d.value }));
-//     //
-//     // g.append("g")
-//     //     .attr("transform", "translate(0," + height + ")")
-//     //     .call(d3.axisBottom(x))
-//     //     .select(".domain")
-//     //     .remove();
-//     //
-//     // g.append("g")
-//     //     .call(d3.axisLeft(y))
-//     //     .append("text")
-//     //     .attr("fill", "#000")
-//     //     .attr("transform", "rotate(-90)")
-//     //     .attr("y", 6)
-//     //     .attr("dy", "0.71em")
-//     //     .attr("text-anchor", "end")
-//     //     .text("Price ($)");
-// }
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y",  10)
+        .attr("x",0 - (plotHeight / 2)-55)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size", "10pt")
+        .style("font-family", "'Roboto', sans-serif")
+        .text("Number of Records");
+
+};

@@ -46,7 +46,12 @@ var drawBarChart = function(){
     }
 
     let xAxis = d3.axisBottom(districtScale);
-    let yAxis = d3.axisLeft(countScale);
+    let yAxis = d3.axisLeft(countScale).ticks(5);
+
+    function make_y_gridlines() {
+        return d3.axisLeft(y)
+            .ticks(5)
+    }
 
     if (plot.select("g#y-axis").size() < 1) {
         let xGroup = plot.append("g").attr("id", "x-axis");
@@ -57,6 +62,7 @@ var drawBarChart = function(){
         let yGroup = plot.append("g").attr("id", "y-axis");
         yGroup.call(yAxis);
         yGroup.attr("transform", "translate(" + 45 + ",0)");
+
     } else {
         plot.select("g#y-axis").call(yAxis);
     }
@@ -96,9 +102,11 @@ var drawBarChart = function(){
     svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y",  10)
-        .attr("x",0 - (plotHeight / 2)-45)
-        .attr("dy", "1em")
+        .attr("x",0 - (plotHeight / 2)-50)
+        .attr("dy", ".5em")
         .style("text-anchor", "middle")
+        .style("font-size", "10pt")
+        .style("font-family", "'Roboto', sans-serif")
         .text("Number of Records");
 
     // svg.append("text")
@@ -110,12 +118,19 @@ var drawBarChart = function(){
     //     .text("Value");
 
     svg.append("text")
-        .attr("x", (plotWidth / 2))
+        .attr("x", 15)
         .attr("y", 0 + (margin.top / 2))
+        .style("font-size", "17pt")
+        .style("font-family", "'Roboto', sans-serif")
+        .text("Police District Incident Count");
+
+    svg.append("text")
+        .attr("x", (plotWidth / 1.8))
+        .attr("y", 0 + (margin.top))
         .attr("text-anchor", "middle")
-        .style("font-size", "16px")
-        .style("text-decoration", "underline")
-        .text("Value vs Date Graph");
+        .style("font-size", "14px")
+        .style("font-family", "'Roboto', sans-serif")
+        .text("Police District");
 }
 
 d3.csv("incident12-1.csv", policeRow).then(function(d){

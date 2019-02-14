@@ -125,3 +125,7 @@ path {
 .img-with-text p {
     padding-bottom: 30px;
 }
+
+g.legend{
+    border: 1px solid lightgray;
+}

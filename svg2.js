@@ -5,6 +5,10 @@ d3.csv("incident12-1.csv", dayOfWeekRow).then(function(d){
 });
 
 
+/*
+ sources:
+ https://bl.ocks.org/carlvlewis/53d42df2300231c1daacdaf9067043c0
+*/
 
 var drawBubbleMap = function(){
     var svg = d3.select("body").select("svg");
@@ -38,30 +42,60 @@ var drawBubbleMap = function(){
         .data(pack(root).leaves())
         .enter().append("g")
         .attr("class", "node")
-        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+        .attr("transform", function(d, i) {
+            console.log("x "+d.x+" " + "y "+d.y)
+            switch (d.data.key){
+                case "Saturday":
+                    return "translate(" + (d.x-35) + "," + d.y + ")";
+                case "Sunday":
+                    return "translate(" + (d.x-3) + "," + d.y + ")";
+                case "Monday":
+                    return "translate(" + (d.x+220) + "," + (d.y-122) + ")";
+                case "Tuesday":
+                    return "translate(" + (d.x+135) + "," + (d.y+180) + ")";
+                case "Wednesday":
+                    return "translate(" + (d.x+320) + "," + (d.y+260) + ")";
+                case "Thursday":
+                    return "translate(" + (d.x-18   ) + "," + (d.y+245) + ")";
+                case "Friday":
+                    return "translate(" + (d.x+145) + "," + (d.y-5) + ")";
+                default:
+                    break;
+            }
+        });
 
     node.append("circle")
         .attr("id", function(d) {
             console.log(d.id)
             return d.id; })
         .attr("r", function(d) {
-            console.log(d.data.key+ " "+ d.r);
-            return d.r;
+            switch (d.data.key) {
+                case "Saturday":
+                    return (1.45*(d.r));
+                case "Sunday":
+                    return d.r;
+                case "Monday":
+                    return (1.2*(d.r));
+                case "Tuesday":
+                    return (.4*(d.r));
+                case "Wednesday":
+                    return (.79*(d.r));
+                case "Thursday":
+                    return (.55*(d.r));
+                case "Friday":
+                    return (.95*(d.r));
+                default:
+                    break;
+            }
         })
         .style("fill", function(d) { return color(d.data.key); });
-
-    node.append("text")
-        .text(function(d) {
-            if (d.data.value > 748){
-                return d.data.key;
-            }
-            return "";});
 
     var legend = svg.selectAll(".legend")
         .data(data).enter()
         .append("g")
         .attr("class","legend")
-        .attr("transform", "translate(" + 780 + "," + 120+ ")");
+        .attr("transform", "translate(" + 750 + "," + 80+ ")")
+
 
 
     legend.append("rect")
@@ -87,4 +121,11 @@ var drawBubbleMap = function(){
         .attr("y",-10)
         .text("Days of the Week")
         .attr("font-size", "17px");
+
+    svg.append("text")
+        .attr("x", 15)
+        .attr("y", 30)
+        .style("font-size", "17pt")
+        .style("font-family", "'Roboto', sans-serif")
+        .text("Incidents by Day of the Week");
 }
