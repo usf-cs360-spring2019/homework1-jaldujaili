@@ -128,4 +128,26 @@ var drawBubbleMap = function(){
         .style("font-size", "17pt")
         .style("font-family", "'Roboto', sans-serif")
         .text("Incidents by Day of the Week");
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate(" + 5 + "," + (height-50)+ ")")
+        .text("By Jordan:");
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate(" + 5 + "," + (height-35)+ ")")
+        .text("The goal here is to show the user the days of the week that would hold more crime. This shows the weekend is higher in crime which can help you to");
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate(" + 5 + "," + (height-20)+ ")")
+        .text("be more vigilent during those times.");
+
 }

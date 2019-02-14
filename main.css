@@ -1,5 +1,5 @@
 svg {
-    background-color: azure;
+    background-color: #ffffff;
 }
 rect{
     fill:white;
@@ -88,7 +88,7 @@ rect.bar {
     fill: none;
 
     /* use stroke, not border, for svg elements */
-    stroke: #bbbbbb;
+    stroke: #e6e6e6;
     stroke-width: 1px;
 }
 
@@ -128,4 +128,13 @@ path {
 
 g.legend{
     border: 1px solid lightgray;
+}
+.captions{
+    font-size: 13px;
+    fill: #8a8a8a;
+}
+
+.tick {
+    stroke: #898989;
+    opacity: 0.7;
 }

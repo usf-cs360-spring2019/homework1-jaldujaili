@@ -16,7 +16,7 @@ var drawBarChart = function(){
     let margin = {
         top:    50,
         right:  45, // leave space for y-axis
-        bottom: 40, // leave space for x-axis
+        bottom: 80, // leave space for x-axis
         left:   20
     };
 
@@ -46,7 +46,14 @@ var drawBarChart = function(){
     }
 
     let xAxis = d3.axisBottom(districtScale);
-    let yAxis = d3.axisLeft(countScale).ticks(5);
+    let yAxis = d3.axisLeft(countScale).ticks(5).tickSize(-plotWidth+50);
+
+    // function make_y_axis() {
+    //     return d3.svg.axis()
+    //         .scale(y)
+    //         .orient("left")
+    //         .ticks(5)
+    // }
 
     function make_y_gridlines() {
         return d3.axisLeft(y)
@@ -131,6 +138,34 @@ var drawBarChart = function(){
         .style("font-size", "14px")
         .style("font-family", "'Roboto', sans-serif")
         .text("Police District");
+
+    // svg.select("g")
+    //     .attr("class", "grid")
+    //     .call(make_y_axis()
+    //         .tickSize(-width, 0, 0)
+    //         .tickFormat("")
+    //     )
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate("+ (5) + "," + (plotHeight+75)+")")
+        .text("By Jordan:");
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate("+ (5) + "," + (plotHeight+90)+")")
+        .text("The primary goal is to get each police district and see the differences between districts. This can be helpful to a user to determine the crime rate in a police district ");
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate("+ (5) + "," + (plotHeight+105)+")")
+        .text("in order to possibly add more force to those areas.");
 }
 
 d3.csv("incident12-1.csv", policeRow).then(function(d){

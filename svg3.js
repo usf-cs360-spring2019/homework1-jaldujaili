@@ -24,7 +24,7 @@ var drawLine = function(){
     let margin = {
         top:    50,
         right:  45, // leave space for y-axis
-        bottom: 40, // leave space for x-axis
+        bottom: 80, // leave space for x-axis
         left:   30
     };
 
@@ -57,7 +57,7 @@ var drawLine = function(){
         plot.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     }
 
-    var yAxis = d3.axisLeft(y).ticks(10);
+    var yAxis = d3.axisLeft(y).ticks(10).tickSize(-plotWidth+50);
     var xAxis = d3.axisBottom(x);
 
 
@@ -74,6 +74,10 @@ var drawLine = function(){
         plot.select("g#y-axis").call(yAxis);
     }
 
+    /*function make_y_gridlines() {
+        return d3.axisLeft(y)
+            .ticks(5)
+    }*/
 
     svg.attr("width", plotWidth + margin.left + margin.right)
         .attr("height", plotHeight + margin.top + margin.bottom)
@@ -88,6 +92,12 @@ var drawLine = function(){
     var valueline = d3.line()
         .x(function(d) { return x(d.key); })
         .y(function(d) { return y(d.value); })
+
+    /*graph.attr("class", "grid")
+        .call(make_y_gridlines()
+            .tickSize(-width)
+            .tickFormat("")
+        )*/
 
     var dayentries = dayMap.entries();
     graph.append("path").attr("class", "line").attr("d", valueline(dayentries));
@@ -116,5 +126,26 @@ var drawLine = function(){
         .style("font-size", "10pt")
         .style("font-family", "'Roboto', sans-serif")
         .text("Number of Records");
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate(" + 5 + "," + (plotHeight+85)+ ")")
+        .text("By Jordan:");
+
+    svg.append("text")
+        .attr("text-anchor", "start")
+        .attr("class", "captions")
+        .attr("dy", "1em")
+        .attr("transform", "translate(" + 5 + "," + (plotHeight+100)+ ")")
+        .text("The goal here, is a comparison of  amount of incidents by the days.");
+
+    // svg.append("text")
+    //     .attr("text-anchor", "start")
+    //     .attr("class", "captions")
+    //     .attr("dy", "1em")
+    //     .attr("transform", "translate(" + 10 + "," + (plotHeight+80)+ ")")
+    //     .text("be more vigilent during those times.");
 
 };
