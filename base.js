@@ -15,31 +15,15 @@
 //     return out ;
 // }
 
-var hourRow = function(row,index){
-    let out = {};
-    var incedentHourParse = d3.timeParse("%H:%m");
-    var time = incedentHourParse(row["Incident Time"]);
-    var hour = time.getHours();
-    var district = row["Police District"];
+var dayOfWeekRow = function(row,index){
 
-    if(hoursMap.has(hour)){
-        if(hoursMap.get(hour).has(district)){
-            var hourForDistrict = hoursMap.get(hour).get(district);
-            hoursMap.set(hour, hoursMap.get(hour).set(district, hourForDistrict+1 ))
-        }else{
-            var hourDistrict = d3.map();
-            hourDistrict.set(district, 1);
-            var districtHours = hoursMap.get(hour);
-            hoursMap.set(hour,  districtHours.set(district, 1));
-        }
+    var day = row["Incident Day of Week"];
+
+    if(dayWeekMap.has(day)){
+        dayWeekMap.set(day, dayWeekMap.get(day)+1)
     }else{
-        var hourDistrict = d3.map();
-        hourDistrict.set(district, 1);
-        hoursMap.set(hour, hourDistrict);
-
+        dayWeekMap.set(day, 1)
     }
-    return out;
-
 }
 var policeRow = function(row,index){
     let out ={};
@@ -57,11 +41,15 @@ var policeRow = function(row,index){
 
 var dayRow = function(row,index){
     let out ={};
-    var day = row["Incident Day of Week"]
+    incedentDateParse = d3.timeParse("%Y/%m/%d");
+    var date = incedentDateParse(row["Incident Date"])
+    out["Incident Date"]= date;
+    var day = date.getDate();
     if(dayMap.has(day)){
         dayMap.set(day, dayMap.get(day)+1)
     }else{
         dayMap.set(day, 1)
     }
+    out["day"] = day
     return out;
 }
