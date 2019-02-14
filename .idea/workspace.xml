@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeda853d-f638-4640-acfa-7dfe23d5d023" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/IncidentsByDate.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/IncidentsByDate.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bubbleChart.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/bubbleChart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/policeBar.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/policeBar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proto.html" beforeDir="false" afterPath="$PROJECT_DIR$/proto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svg1.js" beforeDir="false" afterPath="$PROJECT_DIR$/svg1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svg2.js" beforeDir="false" afterPath="$PROJECT_DIR$/svg2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svg3.js" beforeDir="false" afterPath="$PROJECT_DIR$/svg3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualization1.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualization1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization2.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualization2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization3.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualization3.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,6 +18,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2117">
+              <caret line="179" column="15" selection-start-line="179" selection-start-column="15" selection-end-line="179" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="svg1.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/svg1.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -36,11 +36,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="proto.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proto.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="59" column="53" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visualization1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualization1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="136" selection-start-line="136" selection-end-line="136" />
+            <state relative-caret-position="265">
+              <caret line="137" column="16" lean-forward="true" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -50,6 +68,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="59" column="40" lean-forward="true" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visualization2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualization2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="107" column="384" lean-forward="true" selection-start-line="107" selection-start-column="384" selection-end-line="107" selection-end-column="568" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visualization3.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/visualization3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="734">
+              <caret line="110" column="219" selection-start-line="110" selection-start-column="219" selection-end-line="110" selection-end-column="219" />
+              <folding>
+                <element signature="n#style#0;n#svg#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,15 +148,15 @@
         <option value="$PROJECT_DIR$/base.js" />
         <option value="$PROJECT_DIR$/bubble.csv" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/visualization1.html" />
         <option value="$PROJECT_DIR$/visualization3.html" />
         <option value="$PROJECT_DIR$/visualization2.html" />
-        <option value="$PROJECT_DIR$/proto.html" />
         <option value="$PROJECT_DIR$/svg2.js" />
         <option value="$PROJECT_DIR$/svg3.js" />
         <option value="$PROJECT_DIR$/svg1.js" />
         <option value="$PROJECT_DIR$/main.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/proto.html" />
+        <option value="$PROJECT_DIR$/visualization1.html" />
       </list>
     </option>
   </component>
@@ -212,12 +251,12 @@
       <workItem from="1550081044634" duration="597000" />
       <workItem from="1550081954117" duration="19357000" />
       <workItem from="1550108878372" duration="15076000" />
-      <workItem from="1550159917435" duration="7372000" />
+      <workItem from="1550159917435" duration="7912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88016000" />
+    <option name="totallyTimeSpent" value="88556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="61" width="1280" height="566" extended-state="0" />
@@ -493,51 +532,13 @@
     <entry file="file://$PROJECT_DIR$/img/policeBar.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualization2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="107" column="384" lean-forward="true" selection-start-line="107" selection-start-column="384" selection-end-line="107" selection-end-column="568" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proto.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/bubbleChart.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="110" column="219" selection-start-line="110" selection-start-column="219" selection-end-line="110" selection-end-column="219" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/svg2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="109" column="227" lean-forward="true" selection-start-line="109" selection-start-column="6" selection-end-line="109" selection-end-column="227" />
         </state>
       </provider>
     </entry>
@@ -557,8 +558,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
+        <state relative-caret-position="265">
+          <caret line="137" column="16" lean-forward="true" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2117">
+          <caret line="179" column="15" selection-start-line="179" selection-start-column="15" selection-end-line="179" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="59" column="53" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="107" column="384" lean-forward="true" selection-start-line="107" selection-start-column="384" selection-end-line="107" selection-end-column="568" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="734">
+          <caret line="110" column="219" selection-start-line="110" selection-start-column="219" selection-end-line="110" selection-end-column="219" />
+          <folding>
+            <element signature="n#style#0;n#svg#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
